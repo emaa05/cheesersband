@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/signUp.css">
+</head>
+<body class="bg-zinc-100" style="background-image: url(/imagenes/banda1gris.png);">
+    <div class="flex items-center justify-center h-screen">
+            <form id="signupForm">
+                <h1 class="flex justify-center mb-10 text-stone-100 text-4xl">Register</h1>
+                <div>
+                    <label for="name" class="text-stone-100">Name
+                        <input id="name" placeholder="Name" class="border border-black rounded-md bg-gray-500 w-full text-stone-100" type="text" name="" required>
+                    </label>
+                </div>
+                <div>
+                    <label for="lastname" class="text-stone-100">Last Name
+                        <input id="lastName" placeholder="Last name" class="border border-black rounded-md bg-gray-500 w-full text-stone-100" type="text" name="" required>
+                    </label>
+                </div>
+                <div>
+                    <label for="password" class="text-stone-100">Password
+                        <input id="password" minlength="6" maxlength="10" placeholder="Password" class="border border-black rounded-md bg-gray-500 w-full text-stone-100" type="password" name="" required>
+                    </label>
+                </div>
+                <div>
+                    <label for="email" class="text-stone-100">Email
+                        <input id="email" placeholder="Email" class="border border-black rounded-md bg-gray-500 w-full text-stone-100" type="email" name="" required>
+                    </label>
+                </div>
+                <label for="accept" class="text-stone-100">Accept terms and conditions
+                    <input id="accept" class="w-full" type="checkbox" name="accept" required>
+                </label>
+                <div>
+                    <button id="btnsignUp" type="submit" class="border border-black rounded-md bg-gray-500 hover:bg-sky-700 w-full text-stone-100">Sign Up</button>
+                </div>
+            </form>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="signUp.js"></script>
+</body>
+</html>

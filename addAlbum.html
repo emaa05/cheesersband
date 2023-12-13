@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addAlbum</title>
+    <link rel="stylesheet" href="addAlbum.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="flex h-screen bg-no-repeat bg-center bg-cover" style="background-image: url(/imagenes/banda6.png);">
+        <div class="bg-black w-1/4">
+            <ul>
+                <li>
+                    <div class="flex flex-col md:flex-row">
+                        <a href="index.html">
+                            <i><img class="w-10 m-4" src="/imagenes/logo.jpg" alt="logoalbum"></i>
+                        </a>
+                        <div class="text-stone-100 m-6" id="user-name-container">
+                        </div>
+                        <a href="logIn.html" target="_blank" class="text-stone-100 m-6">Log In</a>
+                    </div>
+                </li>
+                <div class="border-white border-y p-4 text-stone-100">
+                    <a href="addAlbum.html"><li>Add Album</li></a>
+                </div>
+                <div class="border-white border-b p-4 text-stone-100">
+                    <a href="tourDates.html"><li>Tour Dates</li></a>
+                </div>
+                <div class="border-black border-b p-4 text-stone-100">
+                    <button id="logOutButton">Log Out</button>
+                </div>
+            </ul>
+        </div>
+        <div class="flex justify-center items-center w-3/4">
+            <form id="addAlbumForm" class="flex flex-col items-center">
+                <div class="mb-4 w-full max-w-md">
+                    <label for="albumName" class="block text-xl mb-2 bg-blue-500 text-white py-2 px-4 rounded">Nombre del Álbum:</label>
+                    <input type="text" id="albumName" name="albumName" class="w-full p-2 border border-stone-500" required>
+                </div>
+            
+                <div id="songsContainer" class="mb-4 w-full max-w-md">
+                </div>
+            
+                <button type="button" onclick="addSongField()" class="py-2 px-4 bg-stone-500 text-white rounded">Agregar Canción</button>
+                <button type="button" onclick="createAlbum()" class="py-2 px-4 bg-stone-500 text-white rounded">Crear Álbum</button>
+            </form>
+            
+        </div>
+    
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="createAlbum.js"></script>
+        <script src="addSong.js"></script>
+    </body>
+    </html>

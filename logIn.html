@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/signUp.css">
+</head>
+<body class="bg-zinc-100" style="background-image: url(/imagenes/banda1gris.png);">
+    <div class="flex items-center justify-center h-screen">
+        <form id="loginForm">
+            <h1 class="flex justify-center mb-10 text-stone-100 text-4xl">Log In</h1>
+            <div>
+                <label for="email" class="text-stone-100">Email
+                    <input id="email"  placeholder="Email" class="border border-black rounded-md bg-gray-500 w-full text-stone-100" type="email" name="email" required>
+                </label>
+            </div>
+            <div>
+                <label for="password" class="text-stone-100">Password
+                    <input id="password" placeholder="Password" class="border border-black rounded-md bg-gray-500 w-full text-stone-100" type="password" name="password" required>
+                </label>
+            </div>
+            <div>
+                <button id="loginButton" type="submit" class="border border-black rounded-md bg-gray-500 hover:bg-sky-700 w-full text-stone-100">Log In</button>
+            </div>
+            <p class="text-stone-100">Not a member? <a href="signUp.html" class="text-lime-500">Click Here</a></p>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="logIn.js"></script>
+</body>
+</html>
