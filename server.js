@@ -37,7 +37,7 @@ const requireAuth = (req, res, next) => {
   }
 };
 
-app.use('/', userRoutes);
+app.use('/health', (req, res) => res.sendStatus(200));
 
 app.get('/user', requireAuth, UserController.getUserInfo);
 app.post('/logout', UserController.logout);
