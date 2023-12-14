@@ -3,12 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function albumList() {
-  const token = localStorage.getItem('accessToken');
-  axios.get("http://127.0.0.1:3000/albums", {
-    headers: {
-      'Authorization': `Bearer ${token}`,
-    }
-  })
+  const token = localStorage.getItem("accessToken");
+  axios
+    .get("http://www.cheesersband.backend.com/albums", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
     .then((response) => {
       const albums = response.data.albums;
       displayAlbums(albums);
@@ -25,8 +26,14 @@ function displayAlbums(albums) {
 
   albums.forEach((album) => {
     const listItem = document.createElement("div");
-    listItem.classList.add("mb-4", "bg-blue-500", "p-4", "rounded", "cursor-pointer");
-    listItem.style.marginBottom = '10px';
+    listItem.classList.add(
+      "mb-4",
+      "bg-blue-500",
+      "p-4",
+      "rounded",
+      "cursor-pointer"
+    );
+    listItem.style.marginBottom = "10px";
 
     listItem.dataset.albumId = album._id;
     listItem.textContent = album.albumName;
@@ -35,7 +42,14 @@ function displayAlbums(albums) {
 
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
-    deleteButton.classList.add("ml-2", "px-2", "py-1", "bg-red-500", "text-white", "rounded");
+    deleteButton.classList.add(
+      "ml-2",
+      "px-2",
+      "py-1",
+      "bg-red-500",
+      "text-white",
+      "rounded"
+    );
     deleteButton.addEventListener("click", (event) => {
       event.stopPropagation();
       deleteAlbum(album._id);
@@ -47,12 +61,13 @@ function displayAlbums(albums) {
 }
 
 function viewAlbumDetails(albumId) {
-  const token = localStorage.getItem('accessToken');
-  axios.get(`http://127.0.0.1:3000/albums/${albumId}`, {
-    headers: {
-      'Authorization': `Bearer ${token}`,
-    }
-  })
+  const token = localStorage.getItem("accessToken");
+  axios
+    .get(`http://www.cheesersband.backend.com/albums/${albumId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
     .then((response) => {
       const albumDetails = response.data.albumDetails;
       showAlbumDetailsForEditing(albumDetails);
@@ -103,26 +118,28 @@ function showAlbumDetailsForEditing(albumDetails) {
   const editButton = document.createElement("button");
   editButton.textContent = "Edit";
   editButton.addEventListener("click", () => enableEdit(albumDetails));
-  editButton.style.marginRight = "10px";  
-  editButton.style.border = "1px solid #333";  
+  editButton.style.marginRight = "10px";
+  editButton.style.border = "1px solid #333";
   detailsContainer.appendChild(editButton);
 
   const saveButton = document.createElement("button");
   saveButton.textContent = "Save Changes";
   saveButton.addEventListener("click", () => saveChanges(albumDetails));
-  saveButton.style.marginRight = "10px";  
-  saveButton.style.border = "1px solid #333"; 
+  saveButton.style.marginRight = "10px";
+  saveButton.style.border = "1px solid #333";
   detailsContainer.appendChild(saveButton);
 
   const cancelButton = document.createElement("button");
   cancelButton.textContent = "Cancel";
   cancelButton.addEventListener("click", () => cancelEdit(albumDetails));
-  cancelButton.style.border = "1px solid #333";  
+  cancelButton.style.border = "1px solid #333";
   detailsContainer.appendChild(cancelButton);
 }
 
 function enableEdit(albumDetails) {
-  const albumDetailsContainer = document.getElementById("albumDetailsContainer");
+  const albumDetailsContainer = document.getElementById(
+    "albumDetailsContainer"
+  );
 
   if (albumDetailsContainer) {
     const inputElements = albumDetailsContainer.querySelectorAll("input");
@@ -132,48 +149,60 @@ function enableEdit(albumDetails) {
       input.disabled = false;
       input.style.color = "black";
     });
-    
   } else {
     console.error("Album details container not found");
   }
 }
 
 function saveChanges(albumDetails) {
-  const albumDetailsContainer = document.getElementById('albumDetailsContainer');
-  const albumNameInput = albumDetailsContainer.querySelector('.album-name-input');
+  const albumDetailsContainer = document.getElementById(
+    "albumDetailsContainer"
+  );
+  const albumNameInput =
+    albumDetailsContainer.querySelector(".album-name-input");
   const updatedAlbumName = albumNameInput.value;
 
   const updatedSongs = [];
 
-  const liElements = albumDetailsContainer.querySelectorAll('li');
+  const liElements = albumDetailsContainer.querySelectorAll("li");
 
   liElements.forEach(function (liElement, index) {
-    const songTitleInput = liElement.querySelector('#editSongTitle_' + index);
-    const songDurationInput = liElement.querySelector('#editSongDuration_' + index);
+    const songTitleInput = liElement.querySelector("#editSongTitle_" + index);
+    const songDurationInput = liElement.querySelector(
+      "#editSongDuration_" + index
+    );
 
     const songTitleValue = songTitleInput.value;
     const songDurationValue = songDurationInput.value;
 
-    updatedSongs.push({ songTitle: songTitleValue, duration: songDurationValue });
+    updatedSongs.push({
+      songTitle: songTitleValue,
+      duration: songDurationValue,
+    });
   });
 
-  const token = localStorage.getItem('accessToken');
-  axios.put(`http://127.0.0.1:3000/albums/${albumDetails._id}`, {
-      albumName: updatedAlbumName,
-      songs: updatedSongs,
-    },{
-      headers: {
-        'Authorization': `Bearer ${token}`,
+  const token = localStorage.getItem("accessToken");
+  axios
+    .put(
+      `http://www.cheesersband.backend.com/albums/${albumDetails._id}`,
+      {
+        albumName: updatedAlbumName,
+        songs: updatedSongs,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       }
-    })
+    )
     .then(() => {
       Swal.fire({
-        icon: 'success',
-        title: 'Changes saved successfully',
+        icon: "success",
+        title: "Changes saved successfully",
         showConfirmButton: false,
-        timer: 1500, 
+        timer: 1500,
       }).then(() => {
-        window.location.href = 'index.html';
+        window.location.href = "index.html";
       });
     })
     .catch((error) => {
@@ -182,37 +211,37 @@ function saveChanges(albumDetails) {
     });
 }
 
-
 function cancelEdit(albumDetails) {
   showAlbumDetailsForEditing(albumDetails);
 }
 
 function deleteAlbum(albumId) {
   Swal.fire({
-    title: 'Are you sure?',
-    text: 'This action cannot be undone',
-    icon: 'warning',
+    title: "Are you sure?",
+    text: "This action cannot be undone",
+    icon: "warning",
     showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Yes, delete',
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete",
   }).then((result) => {
     if (result.isConfirmed) {
-      const token = localStorage.getItem('accessToken');
-      axios.delete(`http://127.0.0.1:3000/albums/${albumId}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-        }
-      })
+      const token = localStorage.getItem("accessToken");
+      axios
+        .delete(`http://www.cheesersband.backend.com/albums/${albumId}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
         .then(() => {
           console.log(`Album with ID ${albumId} deleted successfully.`);
           Swal.fire({
-            icon: 'success',
-            title: 'Deleted successfully',
+            icon: "success",
+            title: "Deleted successfully",
             showConfirmButton: false,
-            timer: 1500, 
+            timer: 1500,
           }).then(() => {
-            window.location.href = 'index.html';
+            window.location.href = "index.html";
           });
           albumList();
         })

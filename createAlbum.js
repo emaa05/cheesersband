@@ -19,7 +19,7 @@ function createAlbum() {
       songs,
   };
 
-  axios.post('http://127.0.0.1:3000/albums', albumData, {
+  axios.post('http://www.cheesersband.backend.com/albums', albumData, {
     headers: {
       'Authorization': `Bearer ${token}`,
     }

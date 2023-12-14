@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   async function checkUserAuthentication() {
     try {
       const token = localStorage.getItem('accessToken');
-      const response = await axios.get('http://127.0.0.1:3000/user', {
+      const response = await axios.get('http://www.cheesersband.backend.com/user', {
       headers: {
         'Authorization': `Bearer ${token}`,
       },
@@ -58,6 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function redirectToLogin() {
-    window.location.assign('http://127.0.0.1:5500/index.html?');
+    window.location.assign('http://www.cheesersband.frontend.com/index.html?');
   }
 });

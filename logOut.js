@@ -9,29 +9,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
   async function logout() {
     try {
-      localStorage.removeItem('accessToken');
-      const response = await axios.post('http://127.0.0.1:3000/logout', {}, {
-      });
+      localStorage.removeItem("accessToken");
+      const response = await axios.post(
+        "http://www.cheesersband.backend.com/logout",
+        {},
+        {}
+      );
 
       if (response.status >= 200 && response.status < 300) {
         Swal.fire({
-          icon: 'success',
-          title: 'Succesfull Log Out',
-          text: 'See You Soon!',
+          icon: "success",
+          title: "Succesfull Log Out",
+          text: "See You Soon!",
         }).then(() => {
-          window.location.assign('http://127.0.0.1:5500/index.html');
+          window.location.assign(
+            "http://www.cheesersband.frontend.com/index.html"
+          );
         });
       } else {
         Swal.fire({
-          icon: 'error',
-          title: 'Log Out Error',
+          icon: "error",
+          title: "Log Out Error",
           text: `Error: ${response.statusText}`,
         });
       }
     } catch (error) {
       Swal.fire({
-        icon: 'error',
-        title: 'Log Out Error',
+        icon: "error",
+        title: "Log Out Error",
         text: `Error: ${error.message}`,
       });
     }
