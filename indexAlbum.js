@@ -206,6 +206,14 @@ function deleteAlbum(albumId) {
       })
         .then(() => {
           console.log(`Album with ID ${albumId} deleted successfully.`);
+          Swal.fire({
+            icon: 'success',
+            title: 'Deleted successfully',
+            showConfirmButton: false,
+            timer: 1500, 
+          }).then(() => {
+            window.location.href = 'index.html';
+          });
           albumList();
         })
         .catch((error) => {

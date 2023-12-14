@@ -1,72 +1,102 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cheesers</title>
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="shortcut icon" type="image/x-icon" href="/proyecto p5/imagenes/favicon.ico">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-blue-500 text-white">
-    <div class="flex h-screen bg-no-repeat bg-center bg-cover" style="background-image: url(/imagenes/bandaph.png);">
-        <div class="bg-black w-1/4">
-            <ul>
-                <li>
-                    <div class="flex flex-col md:flex-row">
-                        <a href="index.html">
-                            <i><img class="w-10 m-4" src="/imagenes/logo.jpg" alt="logoalbum"></i>
-                        </a>
-                        <div class="text-stone-100 m-6" id="user-name-container">
-                        </div>
-                        <a href="logIn.html" target="_blank" class="text-stone-100 m-6">Log In</a>
-                    </div>
-                </li>
-                <div class="border-t border-white p-4 text-stone-100">
-                    <a href="addAlbum.html"><li>Add Album</li></a>
-                </div>
-                <div class="border-t border-white border-b p-4 text-stone-100">
-                    <a href="tourDates.html"><li>Tour Dates</li></a>
-                </div>
-                <div class="border-t border-black border-b p-4 text-stone-100">
-                    <button id="logOutButton">Log Out</button>
-                </div>
-            </ul>
-        </div>
-        <div class="h-screen w-3/4 flex flex-col items-center">
-            <div class="flex-column mb-8">
-                <h1 class="text-4xl mb-4">Cheesers</h1>
-                <p class="mb-6">Banda Argentina formada en 2014 por Emanuel Corradini, Martin Loiacono, Fermin Gonzalez, Geronimo Perez y Agustin Owad</p>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati sed dolores iste minima voluptatibus, provident numquam repellendus at corrupti sapiente repudiandae aliquid totam perferendis culpa architecto eaque dicta consectetur. Nihil!</p>
+    <link rel="stylesheet" href="/css/index.css" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="/proyecto p5/imagenes/favicon.ico"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-blue-500 text-white">
+    <div
+      class="flex h-screen bg-no-repeat bg-center bg-cover"
+      style="background-image: url(/imagenes/bandaph.png)"
+    >
+      <div class="bg-black w-1/4">
+        <ul>
+          <li>
+            <div class="flex flex-col md:flex-row">
+              <a href="index.html">
+                <i
+                  ><img
+                    class="w-10 m-4"
+                    src="/imagenes/logo.jpg"
+                    alt="logoalbum"
+                /></i>
+              </a>
+              <div class="text-stone-100 m-6" id="user-name-container"></div>
+              <a href="logIn.html" target="_blank" class="text-stone-100 m-6"
+                >Log In</a
+              >
             </div>
-            <div class="flex mb-8">
-                <div id="albumList" class="bg-blue-500 p-4 rounded mr-4">
-                </div>
-                <div id="albumDetailsContainer" class="bg-blue-500 p-4 rounded">
-                    <div id="editAlbumFormContainer" style="display: none;">
-                        <form id="editAlbumForm" onsubmit="updateAlbum(); return false;">
-                            <input type="hidden" id="editAlbumId">
-                            <label for="editAlbumName">Nombre del Álbum:</label>
-                            <input type="text" id="editAlbumName" required>
-                            <div id="songListContainer" class="song-list-container"></div>
-                            <label for="editSongTitle">Título de la Canción:</label>
-                            <input type="text" id="editSongTitle" placeholder="Nuevo título de la canción">
-                            <label for="editSongDuration">Duración de la Canción:</label>
-                            <input type="text" id="editSongDuration" placeholder="Nueva duración de la canción">
-                            <button type="submit">Guardar Cambios</button>
-                            <button type="button" onclick="cancelEdit()">Cancelar</button>
-                        </form>
-                    </div>
-                </div>                
-            </div>
+          </li>
+          <div class="border-t border-white p-4 text-stone-100">
+            <a href="addAlbum.html"><li>Add Album</li></a>
+          </div>
+          <div class="border-t border-white border-b p-4 text-stone-100">
+            <a href="tourDates.html"><li>Tour Dates</li></a>
+          </div>
+          <div class="border-t border-black border-b p-4 text-stone-100">
+            <button id="logOutButton">Log Out</button>
+          </div>
+        </ul>
+      </div>
+      <div class="h-screen w-3/4 flex flex-col items-center">
+        <div class="flex-column mb-8">
+          <h1 class="text-4xl mb-4">Cheesers</h1>
+          <p class="mb-6">
+            Banda Argentina formada en 2014 por Emanuel Corradini, Martin
+            Loiacono, Fermin Gonzalez, Geronimo Perez y Agustin Owad
+          </p>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati
+            sed dolores iste minima voluptatibus, provident numquam repellendus
+            at corrupti sapiente repudiandae aliquid totam perferendis culpa
+            architecto eaque dicta consectetur. Nihil!
+          </p>
         </div>
+        <div class="flex mb-8">
+          <div id="albumList" class="bg-blue-500 p-4 rounded mr-4"></div>
+          <div id="albumDetailsContainer" class="bg-blue-500 p-4 rounded">
+            <div id="editAlbumFormContainer" style="display: none">
+              <form id="editAlbumForm" onsubmit="updateAlbum(); return false;">
+                <input type="hidden" id="editAlbumId" />
+                <label for="editAlbumName">Nombre del Álbum:</label>
+                <input type="text" id="editAlbumName" required />
+                <div id="songListContainer" class="song-list-container"></div>
+                <label for="editSongTitle">Título de la Canción:</label>
+                <input
+                  type="text"
+                  id="editSongTitle"
+                  placeholder="Nuevo título de la canción"
+                />
+                <label for="editSongDuration">Duración de la Canción:</label>
+                <input
+                  type="text"
+                  id="editSongDuration"
+                  placeholder="Nueva duración de la canción"
+                />
+                <button type="submit">Guardar Cambios</button>
+                <button type="button" onclick="cancelEdit()">Cancelar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="index.js"></script>
-<script src="logOut.js"></script>
-<script src="albumActions.js"></script>
-<script src="indexAlbum.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="index.js"></script>
+    <script src="logOut.js"></script>
+    <script src="indexAlbum.js"></script>
+  </body>
 </html>
