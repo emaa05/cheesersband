@@ -33,7 +33,7 @@ async function logIn(email, password) {
         text: "Succesfull LogIn",
       }).then(() => {
         window.location.assign(
-          "http://www.cheesersband.frontend.com/index.html"
+          "https://cheesersband-frontend.onrender.com/index.html"
         );
       });
     } else {

@@ -43,7 +43,7 @@ function handleRegistrationResponse(response) {
       title: "Éxito",
       text: "Succesfull register",
     }).then(() => {
-      window.location.assign("http://www.cheesersband.frontend.com/logIn.html");
+      window.location.assign("https://cheesersband-frontend.onrender.com/logIn.html");
     });
   } else {
     const data = response.data;

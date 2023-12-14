@@ -58,6 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function redirectToLogin() {
-    window.location.assign('http://www.cheesersband.frontend.com/index.html?');
+    window.location.assign('https://cheesersband-frontend.onrender.com/index.html?');
   }
 });
