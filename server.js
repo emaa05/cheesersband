@@ -9,7 +9,7 @@ const path = require("path");
 const app = express();
 
 const corsOptions = {
-  origin: ["http://www.cheesersband.frontend.com", "http://www.cheesersband.backend.com"],
+  origin: ["https://cheesersband-frontend.onrender.com", "https://cheesersband-backend.onrender.com"],
   optionsSuccessStatus: 200,
 };
 
