@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   async function checkUserAuthentication() {
     try {
       const token = localStorage.getItem('accessToken');
-      const response = await axios.get('http://www.cheesersband.backend.com/user', {
+      const response = await axios.get('https://cheesersband-backend.onrender.com/user', {
       headers: {
         'Authorization': `Bearer ${token}`,
       },

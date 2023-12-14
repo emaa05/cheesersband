@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       localStorage.removeItem("accessToken");
       const response = await axios.post(
-        "http://www.cheesersband.backend.com/logout",
+        "https://cheesersband-backend.onrender.com/logout",
         {},
         {}
       );

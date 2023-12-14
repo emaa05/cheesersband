@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function albumList() {
   const token = localStorage.getItem("accessToken");
   axios
-    .get("http://www.cheesersband.backend.com/albums", {
+    .get("https://cheesersband-backend.onrender.com/albums", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -63,7 +63,7 @@ function displayAlbums(albums) {
 function viewAlbumDetails(albumId) {
   const token = localStorage.getItem("accessToken");
   axios
-    .get(`http://www.cheesersband.backend.com/albums/${albumId}`, {
+    .get(`https://cheesersband-backend.onrender.com/albums/${albumId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -184,7 +184,7 @@ function saveChanges(albumDetails) {
   const token = localStorage.getItem("accessToken");
   axios
     .put(
-      `http://www.cheesersband.backend.com/albums/${albumDetails._id}`,
+      `https://cheesersband-backend.onrender.com/albums/${albumDetails._id}`,
       {
         albumName: updatedAlbumName,
         songs: updatedSongs,
@@ -228,7 +228,7 @@ function deleteAlbum(albumId) {
     if (result.isConfirmed) {
       const token = localStorage.getItem("accessToken");
       axios
-        .delete(`http://www.cheesersband.backend.com/albums/${albumId}`, {
+        .delete(`https://cheesersband-backend.onrender.com/albums/${albumId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

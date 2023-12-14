@@ -21,7 +21,7 @@ document
     try {
       console.log("Data to be sent:", { name, lastName, password, email });
       const response = await axios.post(
-        "http://www.cheesersband.backend.com/register",
+        "https://cheesersband-backend.onrender.com/register",
         {
           name,
           lastName,

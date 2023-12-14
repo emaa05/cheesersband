@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const token = localStorage.getItem("accessToken");
       const response = await axios.get(
-        `http://www.cheesersband.backend.com/albums/${albumId}`,
+        `https://cheesersband-backend.onrender.com/albums/${albumId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
