@@ -19,7 +19,7 @@ function createAlbum() {
       songs,
   };
 
-  axios.post('http://www.cheesersband.backend.com/albums', albumData, {
+  axios.post('https://cheesersband-backend.onrender.com/albums', albumData, {
     headers: {
       'Authorization': `Bearer ${token}`,
     }
